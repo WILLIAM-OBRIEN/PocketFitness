@@ -1,44 +1,49 @@
 package com.example.williamobrien.pocketfitness;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-import android.content.Intent;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    Button showMsgBtn;
+    public Button but1;
+    public Button but2;
 
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public void init()
+    {
+        but1 = (Button)findViewById(R.id.btnShowMsg);
+        but1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(i);
+            }
+        });
+
+        but2 = (Button)findViewById(R.id.ToBmi);
+        but2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent j = new Intent(MainActivity.this, BMI_Calculator.class);
+                startActivity(j);
+            }
+        });
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
 
-        showMsgBtn = (Button) findViewById(R.id.btnShowMsg);
 
-        showMsgBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "MEEM PT2", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    public void sendMessage(View view) {
-        Intent secondpage = new Intent(this, Display.class);
-        EditText editText = (EditText) findViewById(R.id.TextView);
-        String message = editText.getText().toString();
-        secondpage.putExtra(EXTRA_MESSAGE, message);
-        startActivity(secondpage);
     }
 
 
@@ -48,8 +53,6 @@ public class MainActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
