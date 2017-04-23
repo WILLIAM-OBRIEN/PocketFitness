@@ -1,5 +1,6 @@
 package com.example.williamobrien.pocketfitness;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,33 +46,36 @@ public class SecondActivity extends ActionBarActivity {
         });
         name_val = (EditText)findViewById(R.id.name);
         age_val = (EditText)findViewById(R.id.age);
+        age_val.setFilters(new Check_Range[]{ new Check_Range("1", "120")});
         weight_val = (EditText)findViewById(R.id.weight);
         submitCal = (Button)findViewById(R.id.cal_sub);
         submitCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String getName = name_val.getText().toString();
-                Integer getAge= age_val.getInputType();
-                Integer getWeight= weight_val.getInputType();
+                int getAge= age_val.getInputType();
+                int getWeight= Integer.parseInt(weight_val.getText().toString());
 
-                if (getName==null || getName.trim().equals(""))
+                if (getName.toString().trim().length() == 0)
                 {
                     Toast.makeText(getBaseContext(),"No name!",Toast.LENGTH_LONG).show();
                 }
-                else if(getAge<=1 || getAge>=120)
+                else if(getAge<0)
                 {
-                    Toast.makeText(getBaseContext(),"Enter an age from 1-120!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"Enter an age!",Toast.LENGTH_LONG).show();
                 }
-                else if(getWeight<=10 ||  getWeight>=300)
+                else if(getWeight<0)
                 {
-                    Toast.makeText(getBaseContext(),"Enter a weight from 10kg-300kg!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"Enter a weight!",Toast.LENGTH_LONG).show();
                 }
                 else
                 {
-                    add_cal.add(getName);
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(SecondActivity.this,android.R.layout.simple_list_item_1,add_cal);
-                    show.setAdapter(adapter);
-                    ((EditText)findViewById(R.id.name)).setText(" ");
+                    Intent j = new Intent(SecondActivity.this, CalorieResults.class);
+                    startActivity(j);
+                    //add_cal.add(getName);
+                    //ArrayAdapter<String> adapter = new ArrayAdapter<String>(SecondActivity.this,android.R.layout.simple_list_item_1,add_cal);
+                    //show.setAdapter(adapter);
+                    //((EditText)findViewById(R.id.name)).setText(" ");
                 }
             }
         });
