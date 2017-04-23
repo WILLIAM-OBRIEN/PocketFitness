@@ -48,23 +48,24 @@ public class SecondActivity extends ActionBarActivity {
         age_val = (EditText)findViewById(R.id.age);
         age_val.setFilters(new Check_Range[]{ new Check_Range("1", "120")});
         weight_val = (EditText)findViewById(R.id.weight);
+        weight_val.setFilters(new Check_Range[]{ new Check_Range("1", "200")});
         submitCal = (Button)findViewById(R.id.cal_sub);
         submitCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String getName = name_val.getText().toString();
-                int getAge= age_val.getInputType();
-                int getWeight= Integer.parseInt(weight_val.getText().toString());
+                String getAge = age_val.getText().toString();
+                String getWeight = weight_val.getText().toString();
 
-                if (getName.toString().trim().length() == 0)
+                if (getName.length()==0)
                 {
                     Toast.makeText(getBaseContext(),"No name!",Toast.LENGTH_LONG).show();
                 }
-                else if(getAge<0)
+                else if(getAge.length()==0)
                 {
                     Toast.makeText(getBaseContext(),"Enter an age!",Toast.LENGTH_LONG).show();
                 }
-                else if(getWeight<0)
+                else if(getWeight.length()==0)
                 {
                     Toast.makeText(getBaseContext(),"Enter a weight!",Toast.LENGTH_LONG).show();
                 }
