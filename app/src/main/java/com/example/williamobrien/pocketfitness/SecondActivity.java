@@ -19,7 +19,9 @@ public class SecondActivity extends ActionBarActivity {
     ArrayAdapter<CharSequence> adapter;
     Button submitCal;
     ArrayList<String> add_cal = new ArrayList<String>();
-    EditText txt;
+    EditText name_val;
+    EditText age_val;
+    EditText weight_val;
     ListView show;
 
     @Override
@@ -41,20 +43,32 @@ public class SecondActivity extends ActionBarActivity {
 
             }
         });
-        txt = (EditText)findViewById(R.id.name);
+        name_val = (EditText)findViewById(R.id.name);
+        age_val = (EditText)findViewById(R.id.age);
+        weight_val = (EditText)findViewById(R.id.weight);
         submitCal = (Button)findViewById(R.id.cal_sub);
         submitCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String getInput = txt.getText().toString();
+                String getName = name_val.getText().toString();
+                Integer getAge= age_val.getInputType();
+                Integer getWeight= weight_val.getInputType();
 
-                if (getInput==null || getInput.trim().equals(""))
+                if (getName==null || getName.trim().equals(""))
                 {
-                    Toast.makeText(getBaseContext(),"Input field is empty",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"No name!",Toast.LENGTH_LONG).show();
+                }
+                else if(getAge<=1 || getAge>=120)
+                {
+                    Toast.makeText(getBaseContext(),"Enter an age from 1-120!",Toast.LENGTH_LONG).show();
+                }
+                else if(getWeight<=10 ||  getWeight>=300)
+                {
+                    Toast.makeText(getBaseContext(),"Enter a weight from 10kg-300kg!",Toast.LENGTH_LONG).show();
                 }
                 else
                 {
-                    add_cal.add(getInput);
+                    add_cal.add(getName);
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(SecondActivity.this,android.R.layout.simple_list_item_1,add_cal);
                     show.setAdapter(adapter);
                     ((EditText)findViewById(R.id.name)).setText(" ");
