@@ -4,5 +4,6 @@
     <string name="app_name">PocketFitness</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="bmi_calculator">BMI Calculator</string>
 
 </resources>

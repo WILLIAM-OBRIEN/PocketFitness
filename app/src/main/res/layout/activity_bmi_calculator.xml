@@ -8,9 +8,14 @@
 
     <TextView
         android:id="@+id/BMITitle"
-        android:layout_width="80dp"
+        android:layout_width="344dp"
         android:layout_height="495dp"
-        android:text="BMI Calculator"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="8dp" />
+        android:gravity="center_horizontal"
+        android:text="@string/bmi_calculator"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:targetApi="center"
+        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>
