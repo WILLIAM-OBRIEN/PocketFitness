@@ -5,13 +5,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
+import android.content.Intent;
 
 
 public class MainActivity extends ActionBarActivity {
 
     Button showMsgBtn;
+
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +25,20 @@ public class MainActivity extends ActionBarActivity {
 
         showMsgBtn = (Button) findViewById(R.id.btnShowMsg);
 
-        showMsgBtn.setOnClickListener(new View.OnClickListener() {
+        showMsgBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "MEEM PT2", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void sendMessage(View view) {
+        Intent secondpage = new Intent(this, Display.class);
+        EditText editText = (EditText) findViewById(R.id.TextView);
+        String message = editText.getText().toString();
+        secondpage.putExtra(EXTRA_MESSAGE, message);
+        startActivity(secondpage);
     }
 
 
@@ -35,6 +48,8 @@ public class MainActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
