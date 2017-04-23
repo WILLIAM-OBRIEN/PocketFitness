@@ -18,7 +18,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showMsgBtn = (Button) findViewById(R.id.bDisplay);
+        showMsgBtn = (Button) findViewById(R.id.btnShowMsg);
 
         showMsgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
