@@ -23,6 +23,7 @@ public class SecondActivity extends ActionBarActivity {
     EditText name_val;
     EditText age_val;
     EditText weight_val;
+    EditText height_val;
     ListView show;
 
     @Override
@@ -48,7 +49,9 @@ public class SecondActivity extends ActionBarActivity {
         age_val = (EditText)findViewById(R.id.age);
         age_val.setFilters(new Check_Range[]{ new Check_Range("1", "120")});
         weight_val = (EditText)findViewById(R.id.weight);
-        weight_val.setFilters(new Check_Range[]{ new Check_Range("1", "200")});
+        weight_val.setFilters(new Check_Range[]{ new Check_Range("1", "300")});
+        height_val = (EditText)findViewById(R.id.height);
+        height_val.setFilters(new Check_Range[]{ new Check_Range("1", "100")});
         submitCal = (Button)findViewById(R.id.cal_sub);
         submitCal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +59,7 @@ public class SecondActivity extends ActionBarActivity {
                 String getName = name_val.getText().toString();
                 String getAge = age_val.getText().toString();
                 String getWeight = weight_val.getText().toString();
+                String getHeight = height_val.getText().toString();
 
                 if (getName.length()==0)
                 {
@@ -69,9 +73,20 @@ public class SecondActivity extends ActionBarActivity {
                 {
                     Toast.makeText(getBaseContext(),"Enter a weight!",Toast.LENGTH_LONG).show();
                 }
+                else if(getHeight.length()==0)
+                {
+                    Toast.makeText(getBaseContext(),"Enter a height!",Toast.LENGTH_LONG).show();
+                }
                 else
                 {
+                    int ageNum=Integer.parseInt(getAge);
+                    //int weightNum=Integer.parseInt(getWeight);
+                    int heightNum=Integer.parseInt(getHeight);
                     Intent j = new Intent(SecondActivity.this, CalorieResults.class);
+                    j.putExtra("KeyName",getName);
+                    j.putExtra("keyAge",getAge);
+                    j.putExtra("keyWeight",getWeight);
+                    j.putExtra("keyHeight",getHeight);
                     startActivity(j);
                     //add_cal.add(getName);
                     //ArrayAdapter<String> adapter = new ArrayAdapter<String>(SecondActivity.this,android.R.layout.simple_list_item_1,add_cal);
