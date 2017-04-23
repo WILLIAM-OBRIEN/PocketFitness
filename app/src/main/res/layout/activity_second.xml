@@ -8,13 +8,13 @@
     tools:context="com.example.williamobrien.pocketfitness.SecondActivity">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/exercise_view"
         android:layout_width="140dp"
         android:layout_height="45dp"
-        android:textStyle="bold"
         android:gravity="bottom|fill_vertical|center"
         android:text="Exercise:"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.721" />
 
     <EditText
-        android:id="@+id/editText14"
+        android:id="@+id/weight"
         android:layout_width="190dp"
         android:layout_height="45dp"
         android:ems="10"
@@ -36,13 +36,13 @@
         app:layout_constraintVertical_bias="0.54" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/weight_view"
         android:layout_width="140dp"
         android:layout_height="45dp"
-        android:textStyle="bold"
         android:gravity="bottom|fill_vertical|center"
         android:text="Weight (Kg):"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -51,13 +51,13 @@
         app:layout_constraintVertical_bias="0.54" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/age_view"
         android:layout_width="140dp"
         android:layout_height="45dp"
-        android:textStyle="bold"
         android:gravity="bottom|fill_vertical|center"
         android:text="Age:"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -66,7 +66,7 @@
         app:layout_constraintVertical_bias="0.349" />
 
     <EditText
-        android:id="@+id/editText13"
+        android:id="@+id/age"
         android:layout_width="190dp"
         android:layout_height="45dp"
         android:ems="10"
@@ -102,32 +102,43 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <EditText
-        android:id="@+id/editText12"
+        android:id="@+id/name"
         android:layout_width="190dp"
         android:layout_height="44dp"
         android:ems="10"
         android:inputType="textMultiLine"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.964"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.964"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.171" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/name_view"
         android:layout_width="140dp"
         android:layout_height="45dp"
-        android:textStyle="bold"
         android:gravity="bottom|fill_vertical|center"
         android:text="Name:"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171"
+        app:layout_constraintVertical_bias="0.171" />
+
+    <Button
+        android:id="@+id/cal_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.072" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.885" />
 
 
 </android.support.constraint.ConstraintLayout>
