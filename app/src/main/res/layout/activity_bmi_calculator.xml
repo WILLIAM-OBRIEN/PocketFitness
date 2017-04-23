@@ -12,10 +12,31 @@
         android:layout_height="495dp"
         android:gravity="center_horizontal"
         android:text="@string/bmi_calculator"
-        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
         android:textSize="30sp"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:targetApi="center"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="8dp" />
+
+    <TextView
+        android:id="@+id/BMIName"
+        android:layout_width="114dp"
+        android:layout_height="41dp"
+        android:gravity="bottom|center_horizontal|center"
+        android:text="Name"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium.Inverse"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="88dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="bottom"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="594dp"
+        tools:layout_editor_absoluteY="133dp" />
+
 </android.support.constraint.ConstraintLayout>
