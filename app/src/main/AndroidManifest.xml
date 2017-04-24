@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
-        <activity android:name=".BMI_Calculator"></activity>
+        <activity android:name=".BMI_Calculator" />
+        <activity android:name=".BmiResultPage"></activity>
     </application>
 
 </manifest>

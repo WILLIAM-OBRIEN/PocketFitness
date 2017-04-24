@@ -25,6 +25,9 @@ public class MainActivity extends ActionBarActivity {
     EditText weight = (EditText) findViewById(R.id.WeightInput);
     TextView height = (TextView) findViewById(R.id.HeightInput);
 
+    //For BMI result page text
+    TextView bmiResultPageText = (TextView) findViewById(R.id.BMIResult);
+
     public void init()
     {
         but1 = (Button)findViewById(R.id.btnShowMsg);
@@ -45,6 +48,8 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(j);
             }
         });
+
+        bmiErrorCheck();
 
     }
 
@@ -129,7 +134,9 @@ public class MainActivity extends ActionBarActivity {
                 //Reference to method CalculateBmi function
                 bmiCalculated = calculateBmi(weightKg, heightCm);
 
-                String determineResponse = interpretBmi(bmiCalculated);
+                String determinedResponse = interpretBmi(bmiCalculated);
+
+                bmiResultPageText.setText(String.valueOf(bmiCalculated + "-" + determinedResponse ));
             }
 
         });
@@ -154,8 +161,22 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    private String interpretBmi(float bmiCalculated)
+    private String interpretBmi(float bmi)
     {
-        if (bmi)
+        if (bmi < 18.5f)
+        {
+            return("You are underweight. It is advised that you consult a doctor");
+        }//end if
+        else if (bmi < 25)
+        {
+            return("You are within normal bmi range");
+        }//End else if
+        else if (bmi > 25)
+        {
+            return("You are overweight. Consider exercising more and eating less junk food");
+        }
+
+        //If none of the above apply somehow
+        return("Error");
     }
 }
