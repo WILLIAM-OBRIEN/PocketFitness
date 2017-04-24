@@ -14,15 +14,26 @@ public class MainActivity extends ActionBarActivity {
 
     Button showMsgBtn;
     public Button but1;
+    public Button but2;
 
     public void init()
     {
         but1 = (Button)findViewById(R.id.btnShowMsg);
+        but2 = (Button)findViewById(R.id.btnShowMetre);
         but1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent i = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(i);
+            }
+        });
+
+        but2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(MainActivity.this, PedometreActivity.class);
                 startActivity(i);
             }
         });
