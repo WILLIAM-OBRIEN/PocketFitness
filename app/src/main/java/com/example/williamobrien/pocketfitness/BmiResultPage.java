@@ -11,6 +11,7 @@ public class BmiResultPage extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi_result_page);
 
+
         String bmiCalc = getIntent().getStringExtra("key");
         String determinedResponse = getIntent().getStringExtra("work");
         String username = getIntent().getStringExtra("name");
@@ -18,6 +19,7 @@ public class BmiResultPage extends ActionBarActivity {
         TextView usersName = (TextView)findViewById(R.id.UsersName);
         TextView bmiResult = (TextView)findViewById(R.id.BMIResult);
         usersName.setText(String.valueOf(username));
+
         bmiResult.setText(String.valueOf(bmiCalc + "-" + determinedResponse));
     }
 }

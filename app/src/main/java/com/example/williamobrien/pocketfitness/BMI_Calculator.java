@@ -73,7 +73,7 @@ public class BMI_Calculator extends ActionBarActivity {
                 String determinedResponse = interpretBmi(bmiCalculated);
 
 
-                String bmiCalcString = Float.toString(bmiCalculated);
+                String bmiCalcString = String.format("%.02f", bmiCalculated);
                 Intent j = new Intent(BMI_Calculator.this, BmiResultPage.class);
                 j.putExtra("key",bmiCalcString);
                 j.putExtra("work",determinedResponse);
