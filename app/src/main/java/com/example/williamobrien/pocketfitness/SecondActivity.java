@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class SecondActivity extends ActionBarActivity {
 
+    public static double exSpin=1.2;
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
     Button submitCal;
@@ -42,18 +43,21 @@ public class SecondActivity extends ActionBarActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
-        String exercise_choice = spinner.getSelectedItem().toString();
-        final String exSpin;
+        if(spinner.getSelectedItem().toString().equals("Intense: Over 5 times a week")){exSpin=(6/5);}
+        /*else if(index==1){exSpin=(3/2);}
+        else if(index==2){exSpin=(17/10);}
+        else if(index==3){exSpin=(19/10);}
+        exSpin=(5/2);*/
+        //String exercise_choice = spinner.getSelectedItem().toString();
         //spinner choice
-        if(exercise_choice.equals("None: I am a human vegetable")){exSpin="1.2";}
-        else if(exercise_choice.equals("None: I am a human vegetable")){exSpin="1.375";}
-        else if(exercise_choice.equals("Light: 1\"-\"3 times a week")){exSpin="1.55";}
-        else if(exercise_choice.equals("Medium: 4 or 5 times a week")){exSpin="1.725";}
-        else if(exercise_choice.equals("Intense: Over 5 times a week")){exSpin="1.9";}
-        else{exSpin="1.2";}
+        /*if(exercise_choice.equals("None: I am a human vegetable")){exSpin=1.2;}
+        else if(exercise_choice.equals("None: I am a human vegetable")){exSpin=1.375;}
+        else if(exercise_choice.equals("Light: 1\"-\"3 times a week")){exSpin=1.55;}
+        else if(exercise_choice.equals("Medium: 4 or 5 times a week")){exSpin=1.725;}
+        else if(exercise_choice.equals("Intense: Over 5 times a week")){exSpin=1.9;}
+        else{exSpin="1.2";}*/
 
         name_val = (EditText)findViewById(R.id.name);
         age_val = (EditText)findViewById(R.id.age);
@@ -89,12 +93,20 @@ public class SecondActivity extends ActionBarActivity {
                 }
                 else
                 {
+                    String word=spinner.getSelectedItem().toString();
+                    //calculates spinner multiplyer
+                    if(word.equals("Light: 1 or 2 times a week")){exSpin=1.5;}
+                    else if(word.equals("Medium: 3 or 4 times a week")){exSpin=1.7;}
+                    else if(word.equals("Intense: 5 times or over a week")){exSpin=1.9;}
+                    else{exSpin=1.2;}
+                    String spinMultiplyer = Double.toString(exSpin);
                     Intent j = new Intent(SecondActivity.this, CalorieResults.class);
                     j.putExtra("Key",getName);
                     j.putExtra("keyAge",getAge);
                     j.putExtra("keyWeight",getWeight);
                     j.putExtra("keyHeight",getHeight);
-                    j.putExtra("keySpin",exSpin);
+                    j.putExtra("keySpin",spinMultiplyer);
+                    Toast.makeText(getBaseContext(),spinMultiplyer,Toast.LENGTH_LONG).show();
                     startActivity(j);
                     //add_cal.add(getName);
                     //ArrayAdapter<String> adapter = new ArrayAdapter<String>(SecondActivity.this,android.R.layout.simple_list_item_1,add_cal);
