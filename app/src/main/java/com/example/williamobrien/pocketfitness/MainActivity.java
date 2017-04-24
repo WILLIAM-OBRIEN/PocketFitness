@@ -7,9 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.EditText;
-import android.text.TextUtils;
+
 
 
 public class MainActivity extends ActionBarActivity {
@@ -17,23 +15,13 @@ public class MainActivity extends ActionBarActivity {
     public Button but1;
     //Takes user to BMI calculation page when pressed
     public Button but2;
-    //BMI calculator input button
-    public Button but3;
-
-    //The three inputted values in BMI calc
-    EditText name = (EditText) findViewById(R.id.NameInput);
-    EditText weight = (EditText) findViewById(R.id.WeightInput);
-    TextView height = (TextView) findViewById(R.id.HeightInput);
-
-    //For BMI result page text
-    TextView bmiResultPageText = (TextView) findViewById(R.id.BMIResult);
 
     public void init()
     {
         but1 = (Button)findViewById(R.id.btnShowMsg);
         but1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
 
                 Intent i = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(i);
@@ -43,13 +31,13 @@ public class MainActivity extends ActionBarActivity {
         but2 = (Button)findViewById(R.id.ToBmi);
         but2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent j = new Intent(MainActivity.this, BMI_Calculator.class);
                 startActivity(j);
             }
         });
 
-        bmiErrorCheck();
+
 
     }
 
@@ -58,8 +46,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-
-
     }
 
 
@@ -85,98 +71,4 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //Calculating bmi and returning text based on the value calculated
-    public void bmiErrorCheck()
-    {
-        but3 = (Button) findViewById(R.id.BMIButton);
-
-        but3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                //Float variables for taking in the values of user height and weight
-                float weightKg;
-                float heightCm;
-                float bmiCalculated;
-
-                //Putting user inputted information into strings
-                String username = name.getText().toString();
-                String userWeight = weight.getText().toString();
-                String userHeight = height.getText().toString();
-
-                //Error checking input in BMI page to make sure there is input
-                //There will be a message sent to the box if empty
-                if (TextUtils.isEmpty(username))
-                {
-                    name.setError("Please enter your name");
-                    name.requestFocus();
-                    return;
-                }
-
-                if (TextUtils.isEmpty(userWeight))
-                {
-                    weight.setError("Please enter your weight");
-                    weight.requestFocus();
-                    return;
-                }
-
-                if (TextUtils.isEmpty(userHeight))
-                {
-                    height.setError("Please enter your height");
-                    height.requestFocus();
-                    return;
-                }
-
-                //Parsing inputted values in height and weight
-                weightKg = Float.parseFloat(userWeight);
-                heightCm = Float.parseFloat(userHeight);
-
-                //Reference to method CalculateBmi function
-                bmiCalculated = calculateBmi(weightKg, heightCm);
-
-                String determinedResponse = interpretBmi(bmiCalculated);
-
-                bmiResultPageText.setText(String.valueOf(bmiCalculated + "-" + determinedResponse ));
-            }
-
-        });
-    }
-
-
-    //Calculating bmi
-    private Float calculateBmi(float kg, float cm)
-    {
-        float toBeReturned = 0.0f;
-        float heightCalculate = 0.0f;
-
-        toBeReturned = toBeReturned + (kg * .45f);
-
-        heightCalculate = heightCalculate + (cm * .025f);
-
-        heightCalculate = heightCalculate * heightCalculate;
-
-        toBeReturned = toBeReturned / heightCalculate;
-
-        return(toBeReturned);
-    }
-
-
-    private String interpretBmi(float bmi)
-    {
-        if (bmi < 18.5f)
-        {
-            return("You are underweight. It is advised that you consult a doctor");
-        }//end if
-        else if (bmi < 25)
-        {
-            return("You are within normal bmi range");
-        }//End else if
-        else if (bmi > 25)
-        {
-            return("You are overweight. Consider exercising more and eating less junk food");
-        }
-
-        //If none of the above apply somehow
-        return("Error");
-    }
 }
