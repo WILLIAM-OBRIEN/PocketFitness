@@ -1,12 +1,12 @@
 package com.example.williamobrien.pocketfitness;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class BMI_Calculator extends ActionBarActivity {
 
@@ -16,7 +16,6 @@ public class BMI_Calculator extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bmi_result_page);
         setContentView(R.layout.activity_bmi_calculator);
 
 
@@ -37,6 +36,7 @@ public class BMI_Calculator extends ActionBarActivity {
                 EditText name = (EditText) findViewById(R.id.NameInput);
                 EditText weight = (EditText) findViewById(R.id.WeightInput);
                 EditText height = (EditText) findViewById(R.id.HeightInput);
+
 
                 //Putting user inputted information into strings
                 String username = name.getText().toString();
@@ -72,10 +72,14 @@ public class BMI_Calculator extends ActionBarActivity {
 
                 String determinedResponse = interpretBmi(bmiCalculated);
 
-                //For BMI result page text
-                TextView bmiResultPageText = (TextView) findViewById(R.id.BMIResult);
 
-                bmiResultPageText.setText(String.valueOf(bmiCalculated + "-" + determinedResponse));
+                String bmiCalcString = Float.toString(bmiCalculated);
+                Intent j = new Intent(BMI_Calculator.this, BmiResultPage.class);
+                j.putExtra("key",bmiCalcString);
+                j.putExtra("work",determinedResponse);
+                j.putExtra("name", username);
+                startActivity(j);
+
             }
         });
     }
@@ -84,16 +88,16 @@ public class BMI_Calculator extends ActionBarActivity {
     //Calculating bmi
     private Float calculateBmi(float kg, float cm)
     {
-        float toBeReturned = 0.0f;
-        float heightCalculate = 0.0f;
-
-        toBeReturned = toBeReturned + (kg * .45f);
-
-        heightCalculate = heightCalculate + (cm * .025f);
+        float toBeReturned = kg;
+        float heightCalculate = cm;
 
         heightCalculate = heightCalculate * heightCalculate;
 
+        heightCalculate = heightCalculate / 100.0f;
+
         toBeReturned = toBeReturned / heightCalculate;
+
+        toBeReturned = toBeReturned * 100;
 
         return(toBeReturned);
     }
