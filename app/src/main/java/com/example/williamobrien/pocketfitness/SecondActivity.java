@@ -45,20 +45,6 @@ public class SecondActivity extends ActionBarActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
-        if(spinner.getSelectedItem().toString().equals("Intense: Over 5 times a week")){exSpin=(6/5);}
-        /*else if(index==1){exSpin=(3/2);}
-        else if(index==2){exSpin=(17/10);}
-        else if(index==3){exSpin=(19/10);}
-        exSpin=(5/2);*/
-        //String exercise_choice = spinner.getSelectedItem().toString();
-        //spinner choice
-        /*if(exercise_choice.equals("None: I am a human vegetable")){exSpin=1.2;}
-        else if(exercise_choice.equals("None: I am a human vegetable")){exSpin=1.375;}
-        else if(exercise_choice.equals("Light: 1\"-\"3 times a week")){exSpin=1.55;}
-        else if(exercise_choice.equals("Medium: 4 or 5 times a week")){exSpin=1.725;}
-        else if(exercise_choice.equals("Intense: Over 5 times a week")){exSpin=1.9;}
-        else{exSpin="1.2";}*/
-
         name_val = (EditText)findViewById(R.id.name);
         age_val = (EditText)findViewById(R.id.age);
         age_val.setFilters(new Check_Range[]{ new Check_Range("1", "120")});
@@ -95,9 +81,9 @@ public class SecondActivity extends ActionBarActivity {
                 {
                     String word=spinner.getSelectedItem().toString();
                     //calculates spinner multiplyer
-                    if(word.equals("Light: 1 or 2 times a week")){exSpin=1.5;}
-                    else if(word.equals("Medium: 3 or 4 times a week")){exSpin=1.7;}
-                    else if(word.equals("Intense: 5 times or over a week")){exSpin=1.9;}
+                    if(word.equals("Light: 1 or 2 times a week")){exSpin=1.35;}
+                    else if(word.equals("Medium: 3 or 4 times a week")){exSpin=1.5;}
+                    else if(word.equals("Intense: 5 times or over a week")){exSpin=1.7;}
                     else{exSpin=1.2;}
                     String spinMultiplyer = Double.toString(exSpin);
                     Intent j = new Intent(SecondActivity.this, CalorieResults.class);

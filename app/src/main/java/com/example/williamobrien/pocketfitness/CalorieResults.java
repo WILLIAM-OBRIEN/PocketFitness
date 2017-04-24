@@ -26,11 +26,12 @@ public class CalorieResults extends ActionBarActivity {
         TextView textView = (TextView) findViewById(R.id.nameBox);
         textView.setText(String.valueOf(getName));
 
-        double total = (66+(14*weightNum)+(5*(heightNum*2))-(7*ageNum));
+        double total = (66.5+(13.75*weightNum)+(5*(heightNum*2.54))-(6.75*ageNum));
         total = total * exMult;
 
         TextView textView2 = (TextView) findViewById(R.id.caloriesTotal);
-        textView2.setText(String.valueOf(total));
+        textView2.setText( String.format( "%.0f", total));
+        //textView2.setText(String.valueOf(total));
         //Toast.makeText(getBaseContext(),getHeight,Toast.LENGTH_LONG).show();
     }
 }
