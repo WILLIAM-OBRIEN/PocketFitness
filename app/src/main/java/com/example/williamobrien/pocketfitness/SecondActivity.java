@@ -45,6 +45,16 @@ public class SecondActivity extends ActionBarActivity {
 
             }
         });
+        String exercise_choice = spinner.getSelectedItem().toString();
+        final String exSpin;
+        //spinner choice
+        if(exercise_choice.equals("None: I am a human vegetable")){exSpin="1.2";}
+        else if(exercise_choice.equals("None: I am a human vegetable")){exSpin="1.375";}
+        else if(exercise_choice.equals("Light: 1\"-\"3 times a week")){exSpin="1.55";}
+        else if(exercise_choice.equals("Medium: 4 or 5 times a week")){exSpin="1.725";}
+        else if(exercise_choice.equals("Intense: Over 5 times a week")){exSpin="1.9";}
+        else{exSpin="1.2";}
+
         name_val = (EditText)findViewById(R.id.name);
         age_val = (EditText)findViewById(R.id.age);
         age_val.setFilters(new Check_Range[]{ new Check_Range("1", "120")});
@@ -79,14 +89,12 @@ public class SecondActivity extends ActionBarActivity {
                 }
                 else
                 {
-                    int ageNum=Integer.parseInt(getAge);
-                    //int weightNum=Integer.parseInt(getWeight);
-                    int heightNum=Integer.parseInt(getHeight);
                     Intent j = new Intent(SecondActivity.this, CalorieResults.class);
-                    j.putExtra("KeyName",getName);
+                    j.putExtra("Key",getName);
                     j.putExtra("keyAge",getAge);
                     j.putExtra("keyWeight",getWeight);
                     j.putExtra("keyHeight",getHeight);
+                    j.putExtra("keySpin",exSpin);
                     startActivity(j);
                     //add_cal.add(getName);
                     //ArrayAdapter<String> adapter = new ArrayAdapter<String>(SecondActivity.this,android.R.layout.simple_list_item_1,add_cal);
