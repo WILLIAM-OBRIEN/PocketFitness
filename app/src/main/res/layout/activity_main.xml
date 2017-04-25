@@ -11,6 +11,7 @@
         android:id="@+id/btnShowMetre"
         android:layout_width="200dp"
         android:layout_height="80dp"
+        android:textSize="15dp"
         android:text="Pedometre"
         android:textStyle="bold"
         android:layout_below="@+id/btnShowMsg"
@@ -24,6 +25,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="26dp"
         android:text="Calorie Calculator"
+        android:textSize="15dp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/btnShowMetre" />
 </RelativeLayout>

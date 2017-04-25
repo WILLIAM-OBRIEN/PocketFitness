@@ -18,9 +18,11 @@ public class PedometreActivity extends ActionBarActivity implements SensorEventL
 
     SensorManager sensorManager;
     TextView steps;
+    TextView cals;
     boolean running = false;
     Button butRes;
     int num;
+    double calories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class PedometreActivity extends ActionBarActivity implements SensorEventL
         setContentView(R.layout.activity_pedometre);
 
         steps = (TextView) findViewById(R.id.steps);
+        cals = (TextView) findViewById(R.id.caloriesStep);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         butRes = (Button)findViewById(R.id.resBtn);
@@ -35,7 +38,9 @@ public class PedometreActivity extends ActionBarActivity implements SensorEventL
             @Override
             public void onClick(View view) {
                 num=0;
+                calories=0;
                 steps.setText(String.valueOf(num));
+                cals.setText(String.valueOf(calories));
             }
         });
     }
@@ -66,6 +71,7 @@ public class PedometreActivity extends ActionBarActivity implements SensorEventL
         if(running)
         {
             steps.setText(String.valueOf(++num));
+            cals.setText(String.valueOf(calories+=0.040));
         }
 
     }
