@@ -21,7 +21,8 @@
         <activity android:name=".BmiResultPage" />
         <activity android:name=".CalorieResults" />
         <activity android:name=".PedometreActivity" />
-        <activity android:name=".CalorieCount"></activity>
+        <activity android:name=".CalorieCount" />
+        <activity android:name=".SplashScreenActivity"></activity>
     </application>
 
 </manifest>
