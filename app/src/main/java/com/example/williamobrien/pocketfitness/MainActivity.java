@@ -19,7 +19,6 @@ public class MainActivity extends ActionBarActivity {
     public void init()
     {
         but1 = (Button)findViewById(R.id.btnShowMsg);
-        but3 = (Button)findViewById(R.id.btnShowMetre);
         but1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
