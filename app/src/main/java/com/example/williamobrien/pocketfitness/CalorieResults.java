@@ -23,6 +23,7 @@ public class CalorieResults extends ActionBarActivity {
         int weightNum=Integer.parseInt(getWeight);
         int heightNum=Integer.parseInt(getHeight);
         double exMult=Double.parseDouble(getEx);
+        String word;
 
         TextView textView = (TextView) findViewById(R.id.nameBox);
         textView.setText(String.valueOf(getName));
@@ -37,6 +38,22 @@ public class CalorieResults extends ActionBarActivity {
         else if(total>3000){textView2.setTextColor(Color.parseColor("#FF4500"));}
         else{textView2.setTextColor(Color.parseColor("#00FF00"));}
         textView2.setText( String.format( "%.0f", total));
+
+        TextView ggView = (TextView) findViewById(R.id.ggpounds);
+        TextView gView = (TextView) findViewById(R.id.gpounds);
+        TextView avgView = (TextView) findViewById(R.id.keep);
+        TextView lView = (TextView) findViewById(R.id.lpounds);
+        TextView llView = (TextView) findViewById(R.id.llpounds);
+        word = String.format( "%.0f", total+1000);
+        ggView.setText(String.valueOf(word+"kcals"));
+        word = String.format( "%.0f", total+500);
+        gView.setText(String.valueOf(word+"kcals"));
+        word = String.format( "%.0f", total);
+        avgView.setText(String.valueOf(word+"kcals"));
+        word = String.format( "%.0f", total-500);
+        lView.setText(String.valueOf(word+"kcals"));
+        word = String.format( "%.0f", total-1000);
+        llView.setText(String.valueOf(word+"kcals"));
         //textView2.setText(String.valueOf(total));
         //Toast.makeText(getBaseContext(),getHeight,Toast.LENGTH_LONG).show();
     }
