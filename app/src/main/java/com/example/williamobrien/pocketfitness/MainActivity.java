@@ -13,12 +13,13 @@ import android.widget.Button;
 public class MainActivity extends ActionBarActivity {
 
     public Button but1;
-    //Takes user to BMI calculation page when pressed
-    public Button but2;
+
+    public Button but3;
 
     public void init()
     {
         but1 = (Button)findViewById(R.id.btnShowMsg);
+        but3 = (Button)findViewById(R.id.btnShowMetre);
         but1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,8 +29,9 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        but2 = (Button)findViewById(R.id.ToBmi);
-        but2.setOnClickListener(new View.OnClickListener() {
+
+        but3 = (Button)findViewById(R.id.ToBmi);
+        but3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent j = new Intent(MainActivity.this, BMI_Calculator.class);
@@ -37,8 +39,14 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        but3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-
+                Intent k = new Intent(MainActivity.this, PedometreActivity.class);
+                startActivity(k);
+            }
+        });
     }
 
     @Override
