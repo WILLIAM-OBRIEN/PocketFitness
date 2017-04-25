@@ -11,16 +11,39 @@
         android:id="@+id/info"
         android:layout_width="163dp"
         android:layout_height="65dp"
-        android:text="INFO"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="91dp" />
+        android:gravity="bottom|center"
+        android:textSize="40dp"
+        android:text="STEPS"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38" />
 
     <TextView
         android:id="@+id/steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="steps"
         android:textSize="40dp"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="186dp" />
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info"
+        app:layout_constraintVertical_bias="0.108" />
+
+    <Button
+        android:id="@+id/resBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

@@ -33,8 +33,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(MainActivity.this, PedometreActivity.class);
-                startActivity(i);
+                Intent k = new Intent(MainActivity.this, PedometreActivity.class);
+                startActivity(k);
             }
         });
     }
