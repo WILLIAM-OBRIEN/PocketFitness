@@ -29,14 +29,15 @@ public class CalorieResults extends ActionBarActivity {
         textView.setText(String.valueOf(getName));
 
         //double total = (66.5+(13.75*weightNum)+(5*(heightNum*2.54))-(6.75*ageNum));
-        double total = ((10*weightNum)+(6.25*(heightNum*2.54))-(5*ageNum)+5);//mifflin st jeor algorithm  = 10 * weight(kg) + 6.25 * height(cm) - 5 * age(y) + 5
+        double total = ((10*weightNum)+(6.25*(heightNum))-(5*ageNum)+5);//mifflin st jeor algorithm  = 10 * weight(kg) + 6.25 * height(cm) - 5 * age(y) + 5
         total = total * exMult;
 
         TextView textView2 = (TextView) findViewById(R.id.caloriesTotal);
-        if(total>2000 && total<2500){textView2.setTextColor(Color.YELLOW);}
+        //changes calories results colors depending on size
+        /*if(total>2000 && total<2500){textView2.setTextColor(Color.YELLOW);}
         else if(total>2500&&total<3000){textView2.setTextColor(Color.parseColor("#FFA500"));}
         else if(total>3000){textView2.setTextColor(Color.parseColor("#FF4500"));}
-        else{textView2.setTextColor(Color.parseColor("#00FF00"));}
+        else{textView2.setTextColor(Color.parseColor("#00FF00"));}*/
         textView2.setText( String.format( "%.0f", total));
 
         TextView ggView = (TextView) findViewById(R.id.ggpounds);
