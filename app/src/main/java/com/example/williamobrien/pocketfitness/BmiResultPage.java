@@ -2,6 +2,7 @@ package com.example.williamobrien.pocketfitness;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class BmiResultPage extends ActionBarActivity {
@@ -21,5 +22,15 @@ public class BmiResultPage extends ActionBarActivity {
         usersName.setText(String.valueOf(username));
 
         bmiResult.setText(String.valueOf(bmiCalc + "-" + determinedResponse));
+
+        float bmiSeekBar= Float.parseFloat(bmiCalc);
+
+        int blah = (int)bmiSeekBar;
+
+        SeekBar bmiSeek=(SeekBar) findViewById(R.id.SeekBarBMI);
+
+        bmiSeek.setMax(50);
+
+        bmiSeek.setProgress(blah);
     }
 }
