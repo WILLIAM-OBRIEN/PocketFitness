@@ -121,15 +121,15 @@ public class BMI_Calculator extends ActionBarActivity {
     {
         if (bmi < 18.5f)
         {
-            return("You are underweight. It is advised that you consult a doctor");
+            return("You are underweight. It is advised that you consult a doctor.");
         }//end if
         else if (bmi < 25)
         {
-            return("You are within normal bmi range");
+            return("You are within normal bmi range.");
         }//End else if
         else if (bmi > 25)
         {
-            return("You are overweight. Consider exercising more and eating less junk food");
+            return("You are overweight. Consider exercising more and eating less junk food!");
         }
 
         //If none of the above apply somehow

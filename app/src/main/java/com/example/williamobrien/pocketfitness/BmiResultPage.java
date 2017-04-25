@@ -19,9 +19,12 @@ public class BmiResultPage extends ActionBarActivity {
 
         TextView usersName = (TextView)findViewById(R.id.UsersName);
         TextView bmiResult = (TextView)findViewById(R.id.BMIResult);
+        TextView ResultSuggestion = (TextView)findViewById(R.id.suggestBox);
         usersName.setText(String.valueOf(username));
 
-        bmiResult.setText(String.valueOf(bmiCalc + "-" + determinedResponse));
+        //bmiResult.setText(String.valueOf(bmiCalc + "-" + determinedResponse));
+        bmiResult.setText(String.valueOf("BMI: " + bmiCalc));
+        ResultSuggestion.setText(String.valueOf(determinedResponse));
 
         float bmiSeekBar= Float.parseFloat(bmiCalc);
 
