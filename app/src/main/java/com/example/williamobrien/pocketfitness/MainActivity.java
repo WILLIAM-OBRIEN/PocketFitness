@@ -14,12 +14,13 @@ public class MainActivity extends ActionBarActivity {
 
     public Button but1;
 
+    public Button but2;
+
     public Button but3;
 
     public void init()
     {
         but1 = (Button)findViewById(R.id.btnShowMsg);
-        but3 = (Button)findViewById(R.id.btnShowMetre);
         but1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,8 +31,8 @@ public class MainActivity extends ActionBarActivity {
         });
 
 
-        but3 = (Button)findViewById(R.id.ToBmi);
-        but3.setOnClickListener(new View.OnClickListener() {
+        but2 = (Button)findViewById(R.id.ToBmi);
+        but2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent j = new Intent(MainActivity.this, BMI_Calculator.class);
@@ -39,6 +40,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        but3 = (Button)findViewById(R.id.btnShowMetre);
         but3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
