@@ -3,6 +3,7 @@ package com.example.williamobrien.pocketfitness;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -51,54 +52,74 @@ public class SecondActivity extends ActionBarActivity {
         weight_val = (EditText)findViewById(R.id.weight);
         weight_val.setFilters(new Check_Range[]{ new Check_Range("1", "300")});
         height_val = (EditText)findViewById(R.id.height);
-        height_val.setFilters(new Check_Range[]{ new Check_Range("1", "100")});
+        height_val.setFilters(new Check_Range[]{ new Check_Range("1", "300")});
         submitCal = (Button)findViewById(R.id.cal_sub);
         submitCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int weightKg;
+                int heightCm;
                 String getName = name_val.getText().toString();
                 String getAge = age_val.getText().toString();
                 String getWeight = weight_val.getText().toString();
                 String getHeight = height_val.getText().toString();
 
-                if (getName.length()==0)
-                {
-                    Toast.makeText(getBaseContext(),"No name!",Toast.LENGTH_LONG).show();
+                if (TextUtils.isEmpty(getName)) {
+                    name_val.setError("Please enter your name");
+                    name_val.requestFocus();
+                    return;
                 }
-                else if(getAge.length()==0)
+                if(TextUtils.isEmpty(getAge))
                 {
-                    Toast.makeText(getBaseContext(),"Enter an age!",Toast.LENGTH_LONG).show();
+                    age_val.setError("Please enter your age");
+                    age_val.requestFocus();
+                    return;
                 }
-                else if(getWeight.length()==0)
+                if(TextUtils.isEmpty(getWeight))
                 {
-                    Toast.makeText(getBaseContext(),"Enter a weight!",Toast.LENGTH_LONG).show();
+                    weight_val.setError("Please enter your weight");
+                    weight_val.requestFocus();
+                    return;
                 }
-                else if(getHeight.length()==0)
+                if(TextUtils.isEmpty(getHeight))
                 {
-                    Toast.makeText(getBaseContext(),"Enter a height!",Toast.LENGTH_LONG).show();
+                    height_val.setError("Please enter your height");
+                    height_val.requestFocus();
+                    return;
                 }
-                else
+
+                weightKg = Integer.parseInt(getWeight);
+                heightCm = Integer.parseInt(getHeight);
+
+                if (weightKg > 300 || weightKg < 30)
                 {
-                    String word=spinner.getSelectedItem().toString();
-                    //calculates spinner multiplyer
-                    if(word.equals("Light: 1 or 2 times a week")){exSpin=1.35;}
-                    else if(word.equals("Medium: 3 or 4 times a week")){exSpin=1.5;}
-                    else if(word.equals("Intense: 5 times or over a week")){exSpin=1.7;}
-                    else{exSpin=1.2;}
-                    String spinMultiplyer = Double.toString(exSpin);
-                    Intent j = new Intent(SecondActivity.this, CalorieResults.class);
-                    j.putExtra("Key",getName);
-                    j.putExtra("keyAge",getAge);
-                    j.putExtra("keyWeight",getWeight);
-                    j.putExtra("keyHeight",getHeight);
-                    j.putExtra("keySpin",spinMultiplyer);
-                    Toast.makeText(getBaseContext(),spinMultiplyer,Toast.LENGTH_LONG).show();
-                    startActivity(j);
-                    //add_cal.add(getName);
-                    //ArrayAdapter<String> adapter = new ArrayAdapter<String>(SecondActivity.this,android.R.layout.simple_list_item_1,add_cal);
-                    //show.setAdapter(adapter);
-                    //((EditText)findViewById(R.id.name)).setText(" ");
+                    weight_val.setError("You either need serious help or entered the wrong weight.");
+                    weight_val.requestFocus();
+                    return;
                 }
+
+                if (heightCm > 300 || heightCm < 60)
+                {
+                    height_val.setError("If you are really this height apply for the world records. Otherwise you have made an error.");
+                    height_val.requestFocus();
+                    return;
+                }
+
+                String word=spinner.getSelectedItem().toString();
+                //calculates spinner multiplier
+                if(word.equals("Light: 1 or 2 times a week")){exSpin=1.35;}
+                else if(word.equals("Medium: 3 or 4 times a week")){exSpin=1.5;}
+                else if(word.equals("Intense: 5 times or over a week")){exSpin=1.7;}
+                else{exSpin=1.2;}
+                String spinMultiplyer = Double.toString(exSpin);
+                //starts new intent for calorie results activity
+                Intent j = new Intent(SecondActivity.this, CalorieResults.class);
+                j.putExtra("Key",getName);
+                j.putExtra("keyAge",getAge);
+                j.putExtra("keyWeight",getWeight);
+                j.putExtra("keyHeight",getHeight);
+                j.putExtra("keySpin",spinMultiplyer);
+                startActivity(j);
             }
         });
     }
