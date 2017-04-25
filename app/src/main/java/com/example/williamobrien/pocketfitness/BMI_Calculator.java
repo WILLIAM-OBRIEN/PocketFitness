@@ -67,6 +67,20 @@ public class BMI_Calculator extends ActionBarActivity {
                 weightKg = Float.parseFloat(userWeight);
                 heightCm = Float.parseFloat(userHeight);
 
+                if (weightKg > 200 || weightKg < 30)
+                {
+                    weight.setError("Not a believable weight. You either need serious help or entered the wrong weight");
+                    weight.requestFocus();
+                    return;
+                }
+
+                if (heightCm > 300 || heightCm < 60)
+                {
+                    height.setError("If you are really this height apply for world records. Otherwise you have made an error.");
+                    height.requestFocus();
+                    return;
+                }
+
                 //Reference to method CalculateBmi function
                 bmiCalculated = calculateBmi(weightKg, heightCm);
 
