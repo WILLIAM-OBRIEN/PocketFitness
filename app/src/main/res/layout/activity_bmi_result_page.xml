@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#228B22"
+    android:background="#00BFFF"
     tools:context="com.example.williamobrien.pocketfitness.BmiResultPage">
 
     <TextView
@@ -50,13 +50,14 @@
     <TextView
         android:id="@+id/OverWeight"
         android:layout_width="203dp"
-        android:layout_height="54dp"
+        android:layout_height="55dp"
         android:background="#F00"
         android:gravity="top|center"
+        android:textStyle="bold"
         android:text="Overweight"
         android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -66,9 +67,10 @@
     <TextView
         android:id="@+id/NormalWeight"
         android:layout_width="53dp"
-        android:layout_height="54dp"
+        android:layout_height="55dp"
         android:background="#32CD32"
         android:gravity="top|center"
+        android:textStyle="bold"
         android:text="Normal"
         android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,14 +82,15 @@
 
     <TextView
         android:id="@+id/Underweight"
-        android:layout_width="152dp"
-        android:layout_height="54dp"
+        android:layout_width="133dp"
+        android:layout_height="55dp"
         android:background="#00FFFF"
+        android:textStyle="bold"
         android:gravity="top|center"
         android:text="Underweight"
         android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -102,8 +105,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516"
-        app:layout_constraintHorizontal_bias="0.333" />
+        app:layout_constraintVertical_bias="0.515" />
 
 
 </android.support.constraint.ConstraintLayout>

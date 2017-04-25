@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00BFFF"
     tools:context="com.example.williamobrien.pocketfitness.BMI_Calculator">
 
     <!-- Text field for entering height in cm-->
     <EditText
         android:id="@+id/HeightInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"
@@ -19,33 +20,34 @@
         android:text=""
         android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintLeft_toRightOf="@+id/BMIHeight"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.609" />
+        app:layout_constraintVertical_bias="0.616" />
 
     <!-- Text for telling user that their height in cm is to be inputted in the field to the right-->
     <TextView
         android:id="@+id/BMIHeight"
-        android:layout_width="97dp"
-        android:layout_height="48dp"
-        android:gravity="bottom|center"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:gravity="center"
         android:text="Height(cm):"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textColor="#000"
+        android:background="@drawable/border"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59" />
+        app:layout_constraintVertical_bias="0.618" />
 
     <!-- Text field to input weight in kg-->
     <EditText
         android:id="@+id/WeightInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"
@@ -54,23 +56,24 @@
         android:text=""
         android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintLeft_toRightOf="@+id/BMIWeight"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397" />
+        app:layout_constraintVertical_bias="0.402" />
 
     <!-- Text to let user know that their weight in kg is to be inputted in the field to the right -->
     <TextView
         android:id="@+id/BMITitle"
-        android:layout_width="345dp"
-        android:layout_height="42dp"
-        android:gravity="center_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:gravity="center"
         android:text="@string/bmi_calculator"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textSize="30sp"
+        android:background="@drawable/header"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:textColor="#000"
+        android:textColor="#fff"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -80,25 +83,26 @@
     <!-- Text to let user know that their name is to be inputted in the right field-->
     <TextView
         android:id="@+id/BMIName"
-        android:layout_width="98dp"
-        android:layout_height="47dp"
-        android:gravity="bottom|left|center"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:background="@drawable/border"
+        android:gravity="center"
         android:text="Name:"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textColor="#000"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintVertical_bias="0.189" />
 
     <!-- Field for user to input their name -->
     <EditText
         android:id="@+id/NameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"
@@ -116,29 +120,31 @@
     <!-- Text asking user to input weight in kg into right field -->
     <TextView
         android:id="@+id/BMIWeight"
-        android:layout_width="97dp"
-        android:layout_height="48dp"
-        android:gravity="bottom|center"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:gravity="center"
         android:text="Weight(kg):"
-        android:textColor="#000"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:background="@drawable/border"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.371" />
+        app:layout_constraintVertical_bias="0.402" />
 
     <!-- Button for calculating the formula when pressed -->
     <Button
         android:id="@+id/BMIButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calculate BMI"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="105dp"
+        android:layout_height="65dp"
+        android:text="Calculate"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.814" />
+        app:layout_constraintVertical_bias="0.922"
+        app:layout_constraintHorizontal_bias="0.501" />
 
 </android.support.constraint.ConstraintLayout>
