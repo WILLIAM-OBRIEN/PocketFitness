@@ -18,6 +18,8 @@ public class MainActivity extends ActionBarActivity {
 
     public Button but3;
 
+    public Button but4;
+
     public void init()
     {
         but1 = (Button)findViewById(R.id.btnShowMsg);
@@ -47,6 +49,16 @@ public class MainActivity extends ActionBarActivity {
 
                 Intent k = new Intent(MainActivity.this, PedometreActivity.class);
                 startActivity(k);
+            }
+        });
+
+        but4 = (Button)findViewById(R.id.CaloreTracker);
+        but4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent l = new Intent(MainActivity.this, CalorieCount.class);
+                startActivity(l);
             }
         });
     }

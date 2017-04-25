@@ -12,4 +12,9 @@
         <item>Intense: 5 times or over a week</item>
     </string-array>
 
+    <string-array name="calorie">
+        <item>Add</item>
+        <item>Subtract</item>
+    </string-array>
+
 </resources>

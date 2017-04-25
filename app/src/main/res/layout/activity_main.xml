@@ -8,6 +8,17 @@
 
 
     <Button
+        android:id="@+id/CaloreTracker"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_alignStart="@+id/ToBmi"
+        android:layout_below="@+id/ToBmi"
+        android:layout_marginTop="59dp"
+        android:layout_centerHorizontal="true"
+        android:text="Calorie Tracker"
+        android:textStyle="bold" />
+
+    <Button
         android:id="@+id/btnShowMetre"
         android:layout_width="200dp"
         android:layout_height="80dp"
@@ -38,4 +49,5 @@
         android:layout_marginTop="59dp"
         android:layout_below="@+id/btnShowMetre"
         android:layout_alignStart="@+id/btnShowMetre" />
+
 </RelativeLayout>
