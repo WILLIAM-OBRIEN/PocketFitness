@@ -3,6 +3,7 @@ package com.example.williamobrien.pocketfitness;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,7 @@ public class CalorieCount extends ActionBarActivity {
     EditText inputCalorie;
     TextView calorieCount;
     double maxCaloriesNorm;
+    String input;
 
 
     double ifTotalExist;
@@ -28,6 +30,7 @@ public class CalorieCount extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calorie_count);
+
 
         calorieSubmit = (Button) findViewById(R.id.CalorieUpdate);
         inputCalorie = (EditText) findViewById(R.id.EnterNumber);
@@ -73,7 +76,23 @@ public class CalorieCount extends ActionBarActivity {
                 @Override
                 public void onClick(View v)
                 {
+                    input = inputCalorie.getText().toString();
 
+                    if (TextUtils.isEmpty(input))
+                    {
+                        inputCalorie.setError("Please enter calories");
+                        inputCalorie.requestFocus();
+                    }
+                    else
+                    {
+
+                        counter = Integer.parseInt(input) + counter;
+                        calorieCount.setText("Calories: " + counter);
+                        if (counter > maxCaloriesNorm)
+                        {
+                            calorieCount.setBackgroundColor(25500);
+                        }
+                    }
 
                 }
             });
@@ -81,6 +100,31 @@ public class CalorieCount extends ActionBarActivity {
         }
         else if(word.equals("Subtract"))
         {
+            calorieSubmit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    input = inputCalorie.getText().toString();
+
+                    if (TextUtils.isEmpty(input))
+                    {
+                        inputCalorie.setError("Please enter calories");
+                        inputCalorie.requestFocus();
+                    }
+                    else
+                    {
+
+                        counter = Integer.parseInt(input) - counter;
+                        calorieCount.setText("Calories: " + counter);
+
+                        if (counter < maxCaloriesNorm)
+                        {
+                            calorieCount.setBackgroundColor(0);
+                        }
+                    }
+
+                }
+            });
 
         }
     }
