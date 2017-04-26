@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:background="@drawable/header"
         android:gravity="center"
-        android:text="Calorie Counter"
+        android:text="Calorie Tracker"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -41,13 +41,15 @@
         android:layout_width="192dp"
         android:layout_height="61dp"
         android:text="CalorieUpdate"
+        android:background="@drawable/appbacking"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
-        app:layout_constraintVertical_bias="0.644"
-        tools:layout_editor_absoluteX="90dp" />
+        app:layout_constraintVertical_bias="0.63" />
 
     <EditText
         android:id="@+id/EnterNumber"
@@ -66,10 +68,13 @@
         android:id="@+id/CaloriesCount"
         android:layout_width="199dp"
         android:layout_height="59dp"
+        android:gravity="center"
+        android:text="Calories: 1245"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintVertical_bias="0.836" />
 </android.support.constraint.ConstraintLayout>
