@@ -63,5 +63,6 @@ public class CalorieResults extends ActionBarActivity {
         Intent j = new Intent(CalorieResults.this, CalorieCount.class);
 
         j.putExtra("PassedRecommendedCalories",total);
+        j.putExtra("name",getName);
     }
 }

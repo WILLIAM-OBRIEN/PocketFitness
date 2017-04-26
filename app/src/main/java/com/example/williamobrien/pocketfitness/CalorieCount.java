@@ -23,6 +23,7 @@ public class CalorieCount extends ActionBarActivity {
     TextView calorieCount;
     double maxCaloriesNorm;
     String input;
+    String name;
 
 
     double ifTotalExist;
@@ -48,10 +49,18 @@ public class CalorieCount extends ActionBarActivity {
 
         if (b != null) {
             ifTotalExist = (double) b.get("PassedRecommendedCalories");
+            name = (String) b.get("name");
+            Toast.makeText(getBaseContext(), name, Toast.LENGTH_LONG);
             maxCaloriesNorm = ifTotalExist;
-        } else {
-            maxCaloriesNorm = 2200;
         }
+        else
+        {
+            maxCaloriesNorm = 2200;
+            Toast.makeText(getBaseContext(), name, Toast.LENGTH_LONG);
+        }
+
+
+
 
         calTrack.setAdapter(arrayAdapter);
         calTrack.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -86,6 +95,7 @@ public class CalorieCount extends ActionBarActivity {
                             if (counter >= 5000)
                             {
                                 counter = 5000;
+                                calorieCount.setText("Calories: " + counter);
                             }
                             else
                             {
@@ -94,8 +104,10 @@ public class CalorieCount extends ActionBarActivity {
                             }
                         if (counter > maxCaloriesNorm)
                         {
-                            calorieCount.setBackgroundColor(25500);
+                            Toast.makeText(getBaseContext(), name + " you have exceded your daily calorie intake!", Toast.LENGTH_LONG);
                         }
+
+
                     }
 
                 }
@@ -113,6 +125,7 @@ public class CalorieCount extends ActionBarActivity {
                             if (counter <= 0)
                             {
                                 counter = 0;
+                                calorieCount.setText("Calories: " + counter);
                             }
                             else
                             {
@@ -122,7 +135,7 @@ public class CalorieCount extends ActionBarActivity {
 
                             if (counter < maxCaloriesNorm)
                             {
-                                calorieCount.setBackgroundColor(0);
+                                Toast.makeText(getBaseContext(),name + "You have exceded your daily calorie intake!",Toast.LENGTH_LONG);
                             }
                         }
 
