@@ -26,35 +26,40 @@
 
     <Spinner
         android:id="@+id/AddOrSubtract"
-        android:layout_width="178dp"
-        android:layout_height="107dp"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.273"
+        app:layout_constraintVertical_bias="0.376"
         app:spinnerMode="dropdown" />
 
     <Button
         android:id="@+id/CalorieUpdate"
-        android:layout_width="192dp"
-        android:layout_height="61dp"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
         android:text="CalorieUpdate"
         android:background="@drawable/appbacking"
         android:textStyle="bold"
         android:textSize="20dp"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.63" />
+=======
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625" />
+>>>>>>> origin/master
 
     <EditText
         android:id="@+id/EnterNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,19 +67,29 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348" />
+        app:layout_constraintVertical_bias="0.382" />
 
     <TextView
         android:id="@+id/CaloriesCount"
+<<<<<<< HEAD
         android:layout_width="199dp"
         android:layout_height="59dp"
         android:gravity="center"
         android:text="Calories: 1245"
+=======
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+>>>>>>> origin/master
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.836" />
+=======
+        app:layout_constraintVertical_bias="0.865"
+        app:layout_constraintHorizontal_bias="0.497" />
+>>>>>>> origin/master
 </android.support.constraint.ConstraintLayout>
