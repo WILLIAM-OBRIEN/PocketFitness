@@ -1,5 +1,6 @@
 package com.example.williamobrien.pocketfitness;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -57,5 +58,10 @@ public class CalorieResults extends ActionBarActivity {
         llView.setText(String.valueOf(word+"kcals"));
         //textView2.setText(String.valueOf(total));
         //Toast.makeText(getBaseContext(),getHeight,Toast.LENGTH_LONG).show();
+
+        //Pass total to calorietracker as intent
+        Intent j = new Intent(CalorieResults.this, CalorieCount.class);
+
+        j.putExtra("PassedRecommendedCalories",total);
     }
 }
