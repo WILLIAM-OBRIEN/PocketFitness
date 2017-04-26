@@ -1,7 +1,9 @@
 package com.example.williamobrien.pocketfitness;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -64,5 +66,9 @@ public class CalorieResults extends ActionBarActivity {
 
         j.putExtra("PassedRecommendedCalories",total);
         j.putExtra("name",getName);
+
+        String totals = String.valueOf(total);
+
+
     }
 }

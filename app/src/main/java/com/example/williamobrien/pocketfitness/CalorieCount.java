@@ -1,6 +1,8 @@
 package com.example.williamobrien.pocketfitness;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -45,12 +47,6 @@ public class CalorieCount extends ActionBarActivity {
         //Set calories display to counter
         calorieCount.setText("Calories: " + counter);
 
-        Intent checker = getIntent();
-        Bundle b = checker.getExtras();
-
-
-
-
 
 
         calTrack.setAdapter(arrayAdapter);
@@ -69,21 +65,6 @@ public class CalorieCount extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                Intent checker = getIntent();
-                Bundle b = checker.getExtras();
-
-
-                if (b != null)
-                {
-                    conversion = getIntent().getStringExtra("PassedRecommendedCalories");
-                    ifTotalExist = Double.parseDouble(conversion);
-                    name = getIntent().getStringExtra("name");
-                    maxCaloriesNorm = ifTotalExist;
-                }
-                else
-                {
-                    maxCaloriesNorm = 2200;
-                }
 
 
                 String word = calTrack.getSelectedItem().toString();
