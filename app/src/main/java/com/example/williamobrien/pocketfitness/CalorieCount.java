@@ -71,21 +71,29 @@ public class CalorieCount extends ActionBarActivity {
 
 
                 String word = calTrack.getSelectedItem().toString();
-        //checks if user wants to add or subtract
+                //checks if user wants to add or subtract
 
 
                 if (word.equals("Add")) {
-                    Toast.makeText(getBaseContext(), "Add", Toast.LENGTH_LONG).show();
                     input = inputCalorie.getText().toString();
 
-                    if (TextUtils.isEmpty(input)) {
+                    if (TextUtils.isEmpty(input))
+                    {
                         inputCalorie.setError("Please enter calories");
                         inputCalorie.requestFocus();
-                    } else {
-
-                        counter = Integer.parseInt(input) + counter;
-                        calorieCount.setText("Calories: " + counter);
-                        if (counter > maxCaloriesNorm) {
+                    } else
+                        {
+                            if (counter >= 5000)
+                            {
+                                counter = 5000;
+                            }
+                            else
+                            {
+                                counter = Integer.parseInt(input) + counter;
+                                calorieCount.setText("Calories: " + counter);
+                            }
+                        if (counter > maxCaloriesNorm)
+                        {
                             calorieCount.setBackgroundColor(25500);
                         }
                     }
@@ -95,20 +103,28 @@ public class CalorieCount extends ActionBarActivity {
 
                 if (word.equals("Subtract")) {
 
-                    Toast.makeText(getBaseContext(), "Sub", Toast.LENGTH_LONG).show();
                     input = inputCalorie.getText().toString();
 
                     if (TextUtils.isEmpty(input)) {
                         inputCalorie.setError("Please enter calories");
                         inputCalorie.requestFocus();
-                    } else {
-                        counter = counter - Integer.parseInt(input);
-                        calorieCount.setText("Calories: " + counter);
+                    } else
+                        {
+                            if (counter <= 0)
+                            {
+                                counter = 0;
+                            }
+                            else
+                            {
+                                counter = counter - Integer.parseInt(input);
+                                calorieCount.setText("Calories: " + counter);
+                            }
 
-                        if (counter < maxCaloriesNorm) {
-                            calorieCount.setBackgroundColor(0);
+                            if (counter < maxCaloriesNorm)
+                            {
+                                calorieCount.setBackgroundColor(0);
+                            }
                         }
-                    }
 
 
                 }
