@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class BmiResultPage extends ActionBarActivity {
 
     @Override
@@ -35,5 +37,16 @@ public class BmiResultPage extends ActionBarActivity {
         bmiSeek.setMax(50);
 
         bmiSeek.setProgress(blah);
+
+        /*Random r = new Random();
+        int pick = r.nextInt(1-2)+1;
+        TextView tipsView = (TextView)findViewById(R.id.tipsBMI);
+        TextView tipsDisplay = (TextView)findViewById(R.id.tipDisplay);
+
+        if (pick == 1)
+        {
+            tipsDisplay.setText(String.valueOf("Tip #"+pick));
+            tipsView.setText(String.valueOf("To lose weight rapidly try moving your chin to your left shoulder then your right. Repeat this when offered seconds."));
+        }*/
     }
 }
