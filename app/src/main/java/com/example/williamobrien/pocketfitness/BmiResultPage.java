@@ -1,5 +1,7 @@
 package com.example.williamobrien.pocketfitness;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.widget.SeekBar;
@@ -37,9 +39,11 @@ public class BmiResultPage extends ActionBarActivity {
         bmiSeek.setMax(50);
 
         bmiSeek.setProgress(blah);
+        bmiSeek.getThumb().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+        bmiSeek.setEnabled(false);
 
         Random r = new Random();
-        int pick = r.nextInt(4)+1;
+        int pick = r.nextInt(5)+1;
         TextView tipsView = (TextView)findViewById(R.id.tipsBMI);
         TextView tipsDisplay = (TextView)findViewById(R.id.tipDisplay);
 
@@ -67,7 +71,7 @@ public class BmiResultPage extends ActionBarActivity {
         if (pick == 5)
         {
             tipsView.setText(String.valueOf("Tip #"+pick));
-            tipsDisplay.setText(String.valueOf("."));
+            tipsDisplay.setText(String.valueOf("Doing 15 push ups a day makes a noticeable difference. If you manage to fit 5475 of them into 1 day, your covered for a full year."));
         }
     }
 }
