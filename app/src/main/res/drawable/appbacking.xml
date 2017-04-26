@@ -6,12 +6,12 @@
 
     android:shape="rectangle">
 
-    <corners android:radius="5dp" />
+    <corners android:radius="20dp" />
     <gradient
 
-        android:startColor="#00BFFF"
+        android:startColor="#FF0000"
 
-        android:endColor="#00BFFF"
+        android:endColor="#FF0000"
 
         android:type="linear"
 
