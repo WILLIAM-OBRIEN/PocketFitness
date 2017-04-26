@@ -22,3 +22,5 @@ Health app with 4 functionalities:
   We found using android studio to be frustrating sometimes with it's slow startup, laggy emulations for phones and sometimes the GUI 
   wasn't representative of the actual displayed application. The project was however a great learning experience for understanding the 
   android development process and the teamwork required for the project aswell.
+
+YouTube Link: https://www.youtube.com/watch?v=QUOJReon6vk&feature=youtu.be
