@@ -28,6 +28,7 @@ public class CalorieCount extends ActionBarActivity {
 
     double ifTotalExist;
 
+    String conversion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,17 +48,7 @@ public class CalorieCount extends ActionBarActivity {
         Intent checker = getIntent();
         Bundle b = checker.getExtras();
 
-        if (b != null) {
-            ifTotalExist = (double) b.get("PassedRecommendedCalories");
-            name = (String) b.get("name");
-            Toast.makeText(getBaseContext(), name, Toast.LENGTH_LONG);
-            maxCaloriesNorm = ifTotalExist;
-        }
-        else
-        {
-            maxCaloriesNorm = 2200;
-            Toast.makeText(getBaseContext(), name, Toast.LENGTH_LONG);
-        }
+
 
 
 
@@ -77,6 +68,22 @@ public class CalorieCount extends ActionBarActivity {
         calorieSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent checker = getIntent();
+                Bundle b = checker.getExtras();
+
+
+                if (b != null)
+                {
+                    conversion = getIntent().getStringExtra("PassedRecommendedCalories");
+                    ifTotalExist = Double.parseDouble(conversion);
+                    name = getIntent().getStringExtra("name");
+                    maxCaloriesNorm = ifTotalExist;
+                }
+                else
+                {
+                    maxCaloriesNorm = 2200;
+                }
 
 
                 String word = calTrack.getSelectedItem().toString();
@@ -104,7 +111,15 @@ public class CalorieCount extends ActionBarActivity {
                             }
                         if (counter > maxCaloriesNorm)
                         {
-                            Toast.makeText(getBaseContext(), name + " you have exceded your daily calorie intake!", Toast.LENGTH_LONG);
+                            if (name == null)
+                            {
+                                Toast.makeText(getBaseContext(), "Unknown" + " you have exceded your daily calorie intake!", Toast.LENGTH_LONG).show();
+
+                            }
+                            else
+                            {
+                                Toast.makeText(getBaseContext(), name + " you have exceded your daily calorie intake!", Toast.LENGTH_LONG).show();
+                            }
                         }
 
 
@@ -133,10 +148,6 @@ public class CalorieCount extends ActionBarActivity {
                                 calorieCount.setText("Calories: " + counter);
                             }
 
-                            if (counter < maxCaloriesNorm)
-                            {
-                                Toast.makeText(getBaseContext(),name + "You have exceded your daily calorie intake!",Toast.LENGTH_LONG);
-                            }
                         }
 
 
